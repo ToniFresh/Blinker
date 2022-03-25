@@ -6,6 +6,7 @@ Gui::Gui(QWidget *parent) :
     QWidget(parent)
 {
     setupUi(this);
+    cnt = 0;
     m_state = 0;
     m_timer = new QTimer(this);
     m_gpio = new Gpio(this);
@@ -28,5 +29,12 @@ void Gui::toggle()
 {
     m_state = !m_state;
     blinklabel->setNum(m_state);
-    m_gpio->set(LEDS[0], m_state);
+
+    for(int i = 0; i < 4; i++)
+    {
+        m_gpio->set(LEDS[i], 0);
+    }
+    m_gpio->set(LEDS[cnt], 1);
+    cnt++;
+    if(cnt > 4) cnt = 0;
 }

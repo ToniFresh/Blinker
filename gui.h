@@ -19,6 +19,7 @@ private:
     QTimer* m_timer;
     bool m_state;
     Gpio* m_gpio;
+    int cnt;
 };
 
 #endif // GUI_H
