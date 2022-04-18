@@ -15,11 +15,14 @@ private slots:
     void on_startButton_clicked();
     void on_horizontalSlider_valueChanged(int value);
     void toggle();
+    void on_dirButton_clicked();
+
 private:
     QTimer* m_timer;
     bool m_state;
     Gpio* m_gpio;
-    int cnt;
+    int m_cnt;
+    bool m_dir;
 };
 
 #endif // GUI_H
